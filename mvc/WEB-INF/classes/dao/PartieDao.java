@@ -11,16 +11,52 @@ import pojo.Partie;
 
 public class PartieDao {
 
-	private DataSource ds;
 	private Connection con;
 
 	public PartieDao(DataSource ds, Connection con) {
-		this.ds = ds;
 		try {
 			this.con = ds.getConnection();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public boolean create(Partie partie) throws SQLException {
+		PreparedStatement ps = null;
+		try {
+			String query = "insert into partie values (" + partie.getPno() + "),(" + partie.getJno1() + "),("
+					+ partie.getJno2() + "),(" + partie.getDate() + "),(" + partie.getStatut() + "),("
+					+ partie.getTemp() + "),(" + partie.getGagnant() + ")";
+			ps = con.prepareStatement(query);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			throw new RuntimeException("Impossible de rechercher la partie " + partie, e);
+		}
+
+		return ps.executeUpdate() == 1;
+	}
+
+	public boolean delete(int id) throws SQLException {
+		PreparedStatement ps = null;
+
+		try {
+			String query = "Delete * FROM PARTIE where pno = ?";
+			ps = con.prepareStatement(query);
+			ps.setInt(1, id);
+			ResultSet rs = ps.executeQuery();
+
+			if (rs.next()) {
+				new Partie(rs.getInt("PNO"), rs.getInt("JNO1"), rs.getInt("JNO2"), rs.getDate("DATEP"),
+						rs.getString("STATUT"), rs.getString("TEMP"), rs.getString("GAGANNAT"));
+			}
+
+			con.close();
+
+		} catch (SQLException e) {
+			throw new RuntimeException("Impossible de rechercher la partie " + id, e);
+		}
+
+		return ps.executeQuery().next();
 	}
 
 	public Partie find(int id) {
@@ -68,45 +104,6 @@ public class PartieDao {
 		}
 
 		return res;
-	}
-
-	public boolean create(Partie partie) throws SQLException {
-		PreparedStatement ps = null;
-		try {
-			String query = "insert into partie values (" + partie.getPno() + "),(" + partie.getJno1() + "),("
-					+ partie.getJno2() + "),(" + partie.getDate() + "),(" + partie.getStatut() + "),("
-					+ partie.getTemp() + "),(" + partie.getGagnant() + ")";
-			ps = con.prepareStatement(query);
-			ps.executeUpdate();
-		} catch (SQLException e) {
-			throw new RuntimeException("Impossible de rechercher la partie " + partie, e);
-		}
-
-		return ps.executeUpdate() == 1;
-	}
-	
-	public boolean delete(int id) throws SQLException {
-		Partie partie = null;
-		PreparedStatement ps = null;
-
-		try {
-			String query = "Delete * FROM PARTIE where pno = ?";
-			ps = con.prepareStatement(query);
-			ps.setInt(1, id);
-			ResultSet rs = ps.executeQuery();
-
-			if (rs.next()) {
-				partie = new Partie(rs.getInt("PNO"), rs.getInt("JNO1"), rs.getInt("JNO2"), rs.getDate("DATEP"),
-						rs.getString("STATUT"), rs.getString("TEMP"), rs.getString("GAGANNAT"));
-			}
-
-			con.close();
-
-		} catch (SQLException e) {
-			throw new RuntimeException("Impossible de rechercher la partie " + id, e);
-		}
-		
-		return ps.executeQuery().next();
 	}
 
 }
