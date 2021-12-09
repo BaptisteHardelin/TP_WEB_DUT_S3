@@ -1,0 +1,53 @@
+body {
+    background-color: lavender;
+}
+
+h1 {
+    color: white;
+    background-color: black;
+    text-align: center;
+    font-size: 2em;
+}
+
+article {
+    font-size: 1.5em;
+    font-family: 'Arial';
+}
+
+header, footer {
+    font-size: 3em;
+    letter-spacing: 1em;
+    text-align: center;
+    border-style: groove;
+    border-color: black;
+}
+
+article div {
+    display: inline-block;
+    background-color: gray;
+    width: 45%;
+    margin: 1%;
+    padding: 1%;
+}
+
+nav {
+    text-align: center;
+    background-color: gray;
+    padding: 4px;
+}
+
+nav li {
+    display: inline-block;
+}
+
+nav li a {
+    color: white;
+    background-color: gray;
+    font-size: 2em;
+    font-family: 'Trebuchet MS';
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: black;
+}

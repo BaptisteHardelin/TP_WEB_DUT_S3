@@ -1,0 +1,4 @@
+[ZoneTransfer]
+ZoneId=3
+ReferrerUrl=https://github.com/pmathieufr/dut_prog_web/tree/master/cours01/exercices
+HostUrl=https://repo1.maven.org/maven2/com/h2database/h2/1.4.200/h2-1.4.200.jar

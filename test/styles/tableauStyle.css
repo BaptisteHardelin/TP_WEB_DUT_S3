@@ -1,0 +1,75 @@
+/*Style du tableau !*/
+
+table{
+    border: solid 1px black;
+}
+
+td:first-of-type {
+    border: none;
+}
+
+th:first-of-type {
+    border-left: none;
+}
+
+td {
+    border-left: solid 1px black;
+}
+
+th {
+    border-bottom: solid 1px black;
+    border-left: solid 1px black;
+}
+
+th {
+    color: white;
+    background-color: darkgray;
+}
+
+/*On met en couleur une foie sur deux*/
+tr:nth-of-type(2n) {
+    color: lightgray;
+}
+
+tr:hover {
+    color: lightgreen;
+}
+
+/* Style formulaire */
+
+fieldset {
+    padding:2.5%;
+    width:50%;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+fieldset span {
+    width:100%;
+}
+
+fieldset span, fieldset>input {
+    margin-top:2%;
+}
+
+fieldset span label,fieldset input, fieldset textarea {
+    max-width: 45%;
+    width:45%;
+}
+
+fieldset span label {
+    text-align:right;
+    float:left;
+    margin-right:2.5%;
+}
+
+fieldset span input {
+    float:left;
+}
+
+fieldset input:last-child {
+    display: block;
+    text-align: center;
+}

@@ -1,0 +1,35 @@
+body {
+ font-family:Tahoma,Arial,sans-serif;
+ background-color: lavender;
+}
+th{
+  color: white;
+  background-color: darkgray;
+  padding: 5px;
+}
+
+table,tr{
+  border: solid black 2px;
+  border-collapse:collapse;
+  text-align:center;
+}
+tr:nth-child(2n+1){
+	 background-color: lightgray;
+}
+tr:hover{
+  background-color: lightgreen;
+}
+
+h3 {
+  width: 95%;
+  margin: 10px auto;
+  padding: 5px;
+  background-color: #FFFFCC;
+  min-height: 100px;
+  border: dashed 1px black;
+  display: block;
+}
+
+TD {
+  vertical-align: top;
+}

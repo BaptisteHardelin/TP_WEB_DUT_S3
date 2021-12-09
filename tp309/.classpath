@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="WEB-INF/classes"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/h2-1.4.200.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/postgresql-42.2.23.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/servlet-api.jar"/>
+	<classpathentry kind="output" path="WEB-INF/classes"/>
+</classpath>
